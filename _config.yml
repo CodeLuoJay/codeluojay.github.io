@@ -86,19 +86,22 @@ symbols_count_time:
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: git@github.com:bobi8344/bobi8344.github.io.git
-  branch: master
-#deploy:
-  #type: baidu_url_submitter
-#自动生成sitemap
+ - type: git
+   repo: git@github.com:bobi8344/bobi8344.github.io.git
+   branch: master
+ - type: baidu_url_submitter
+#自动生成sitemap.xml
 sitemap: 
     path: sitemap.xml
 baidusitemap:
     path: baidusitemap.xml
 #自己添加的主动推送配置
-#baidu_url_submit:
-  #count: 100 # 提交最新的一个链接
-  #host: www.luojay.top # 在百度站长平台中注册的域名
-  #token: sDY506JGasP0M0Xm # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
-  #path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+baidu_url_submit:
+  count: 100 # 提交最新的一个链接
+  host: www.luojay.top # 在百度站长平台中注册的域名
+  token: sDY506JGasP0M0Xm # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
+  path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+#开启nofollw 防止出站链接
+nofollow:
+    enable: true
+    exclude:

@@ -3,11 +3,13 @@ title: HashMap学习
 date: 2019-07-06 12:23:21
 tags: HashMap
 categories:  Java
+images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/hexo/index/HashMap-index.jpg?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567662385;1630734385&q-key-time=1567662385;1630734385&q-header-list=&q-url-param-list=&q-signature=55c53599ba3b713b3a81f96151631d6b2e53118a"
 ---
+HashMap是Java集合下Map接口的重要实现类，在常规的Java基础面试题中是个高频的考点，由HashMap可以考查到求职者的基础功底和学习能力，学习深度,甚至于可以通过HashMap深入到考查数据结构。<!-- more -->
 ## 本文思维导图
 
 ![HashMap知识点](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/HashMap.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567431563;1630503563&q-key-time=1567431563;1630503563&q-header-list=&q-url-param-list=&q-signature=ea88575ab261704c0152ca4977ee7e721d2d309c)
-<!-- more -->
+
 ## HashMap的存储特点
 HashMap是Map接口的实现类，所以Map有的特点它也有：
 1.HashMap存储的是以键值对形式双列数据，键值对即（key-value）

@@ -1,8 +1,10 @@
 ---
 title: 如何在半天内利用Hexo+Github Page搭建个人博客
-images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/hexo/hexo_backgroud.jpg?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567575858;1630647858&q-key-time=1567575858;1630647858&q-header-list=&q-url-param-list=&q-signature=a563a5f4b5a22568079359e412762481aada7129"
+date: 2019-07-01 08:46:23
+images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/hexo/index/githubpages-index.jpg?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567653270;1630725270&q-key-time=1567653270;1630725270&q-header-list=&q-url-param-list=&q-signature=e2bb647f107708bcae510173f5972fa7a205b7f9"
+categories: hexo
 ---
-作为一个程序员，个人觉得博客和Github用来记录自己的学习历程最为合适不过，相信大部分的学习编程的人应该都会用过Github,而Github Page 依托着Github的项目适合用来展示项目的Demo。这里我们用来Hexo+Github Page搭建个人博客最适合不过了。
+作为一个程序员，个人觉得博客和Github用来记录自己的学习历程最为合适不过，相信大部分的学习编程的人应该都会用过Github,而Github Page 依托着Github的项目适合用来展示项目的Demo。这里我们用来Hexo+Github Page搭建个人博客最适合不过了。<!-- More -->
 
 ###	需要具备的知识
 		1.Git的基本命令知识
