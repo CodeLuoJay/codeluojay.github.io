@@ -21,7 +21,7 @@ Java 官方API文档提供三种视图给我们来遍历元素：
 HashMap数据结构图示，默认创建长度为16的数组，根据哈希值计算在数组的索引位置，然后在相同索引位置的添加节点元素并以单向链表的形式排列节点元素。
 ![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-store.png)
 其中每个节点元素的结构由Entry<key,value>和Node<k,v>组成，这里只对Entry<key,value>作图解释
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568728879;1631800879&q-key-time=1568728879;1631800879&q-header-list=&q-url-param-list=&q-signature=27323730916030a77837f4b32d9f4189f6bfc138)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-Entry.png)
 
 
 
@@ -33,7 +33,7 @@ HashMap数据结构图示，默认创建长度为16的数组，根据哈希值�
 
 通过Set视图遍历就是一开始只会获取到一组Key的值，只知道Set集合里面的Key如下图所示
 
-![Set视图](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_01.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568731168;1631803168&q-key-time=1568731168;1631803168&q-header-list=&q-url-param-list=&q-signature=4d5a2b5dc23f673e1820e411656307bc1e2f25e6)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-KeyValue.png)
 
 遍历Set集合中的key去找每一个Key所对应的的value值：按图中①到④的方式依次遍历
 
