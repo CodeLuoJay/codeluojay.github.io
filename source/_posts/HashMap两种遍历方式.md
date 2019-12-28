@@ -19,9 +19,9 @@ Java 官方API文档提供三种视图给我们来遍历元素：
 ```
 
 HashMap数据结构图示，默认创建长度为16的数组，根据哈希值计算在数组的索引位置，然后在相同索引位置的添加节点元素并以单向链表的形式排列节点元素。
-![hashMap数据结构](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/hash_data_structure.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567438101;1630510101&q-key-time=1567438101;1630510101&q-header-list=&q-url-param-list=&q-signature=1437633863269cb1def3067fe2431071391b9a6f)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-store.png)
 其中每个节点元素的结构由Entry<key,value>和Node<k,v>组成，这里只对Entry<key,value>作图解释
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568728879;1631800879&q-key-time=1568728879;1631800879&q-header-list=&q-url-param-list=&q-signature=27323730916030a77837f4b32d9f4189f6bfc138)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-Entry.png)
 
 
 
@@ -33,11 +33,11 @@ HashMap数据结构图示，默认创建长度为16的数组，根据哈希值�
 
 通过Set视图遍历就是一开始只会获取到一组Key的值，只知道Set集合里面的Key如下图所示
 
-![Set视图](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_01.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568731168;1631803168&q-key-time=1568731168;1631803168&q-header-list=&q-url-param-list=&q-signature=4d5a2b5dc23f673e1820e411656307bc1e2f25e6)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-KeyValue.png)
 
 遍历Set集合中的key去找每一个Key所对应的的value值：按图中①到④的方式依次遍历
 
-![key遍历value过程图](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_01_1.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568732131;1631804131&q-key-time=1568732131;1631804131&q-header-list=&q-url-param-list=&q-signature=beee26c239a10cf2c5ceb649b42005eb94ae5603)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-keyeach.png)
 
 如果理解上述的思路及过程，那么便可以解决HashMap嵌套HashMap的问题
 
@@ -150,17 +150,13 @@ Normalclass
 
 一开始只能获取到Set的Entry类中的地址值，其他的均获取不到
 
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_02.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568740447;1631812447&q-key-time=1568740447;1631812447&q-header-list=&q-url-param-list=&q-signature=d06f2f63250ceb8989c6a60b7582dc7b0610e676)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-EntryEach.png)
 
 接下来通过每一个地址值0xxxx去找到对应的键值对对象，通过它调用`getKey()`，`getValue()`
 
-获取key和value。
+获取key和value。调用`getKey()`,`getValue()`逐个获取key和value，一直获取到最后
 
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_02_1.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568740894;1631812894&q-key-time=1568740894;1631812894&q-header-list=&q-url-param-list=&q-signature=091980c51524e498386f930eb3f6b200abc11a94)
-
-调用`getKey()`,`getValue()`逐个获取key和value，一直获取到最后
-
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_02_2.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568740934;1631812934&q-key-time=1568740934;1631812934&q-header-list=&q-url-param-list=&q-signature=67f4577786dbb30b30a9025d4a7f8399c3f9420c)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-getKeyValue.png)
 
 这里还是以上面的高中划分重点班和普通班的场景为例子，使用方式二遍历输出
 
@@ -184,7 +180,7 @@ public void getStudentForEntry() {
 	}
 ```
 输出结果如下：
-![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/Java/Map_traverse_result.png?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1568768240;1631840240&q-key-time=1568768240;1631840240&q-header-list=&q-url-param-list=&q-signature=d77b44ddd8742af152f20907e9dbf701a3f03b0f)
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-Outputresult.png)
 
 ### 遍历总结
 
@@ -240,3 +236,4 @@ for(String seniorKey:senior.keySet()){
 ### 最后的最后
 
 最后的最后，写这篇博文时候，其实是为了提高自己的编程思想，两层的HashMap嵌套其实是个中间点，经过思想上的简化，可以简化成单层HashMap，由此对于三层及以上的HashMap嵌套，采用简化思想也会迎刃而解，只不过是时间和熟练的问题，而对于其他List嵌套HashMap的`List<HashMap<String,Integer>>`那么就更加容易解决，因为HashMap嵌套是双列集合嵌套双列集合，对于一个单列嵌套双列，是不是简化了一个维度？
+
