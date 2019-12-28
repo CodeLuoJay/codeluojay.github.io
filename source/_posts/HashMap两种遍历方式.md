@@ -3,7 +3,7 @@ title: HashMap两种遍历方式
 date: 2019-07-08 20:30:35
 tags: HashMap
 categories:  Java
-images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/hexo/index/HashMap-index.jpg?q-sign-algorithm=sha1&q-ak=AKIDVnsTrvTgFf9G9myYbpmT3OVgeOypNtAE&q-sign-time=1567662385;1630734385&q-key-time=1567662385;1630734385&q-header-list=&q-url-param-list=&q-signature=55c53599ba3b713b3a81f96151631d6b2e53118a"
+images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/JavaSE-HashMap/JavaSE-HashMap-index.jpg"
 ---
 
 写在最前面的话：HashMap是Java集合中面试会被问得最多的一个知识点，而HashMap的遍历方法可以很好融合Java的泛型，自定义封装类的知识，所以很又必要掌握它的遍历。<!--more-->
