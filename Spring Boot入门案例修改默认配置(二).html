@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一个进阶Java后端工程师">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="website">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://www.luojay.top/categories/index.html">
+<meta property="og:site_name" content="luojay">
+<meta property="og:description" content="一个进阶Java后端工程师">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-05T01:07:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="categories">
+<meta name="twitter:description" content="一个进阶Java后端工程师">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.luojay.top/categories/">
+
+
+
+
+
+  <title>Spring Boot入门案例修改默认配置(二) | luojay</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">luojay</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.luojay.top/Spring Boot入门案例修改默认配置(二).html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="luojay">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="luojay">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Spring Boot入门案例修改默认配置(二)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T21:23:21+08:00">2019-12-28</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/SpringBoot2-X系列/" itemprop="url" rel="index">
+                    <span itemprop="name">SpringBoot2.X系列</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Spring Boot入门案例修改默认配置(二).html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/Spring Boot入门案例修改默认配置(二).html" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv">阅读次数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">9.8k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 mins.</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>​        Spring Boot官方声称搭建Web应用开箱即用，其根本原因就是底层封装好大部分的约束和配置，而作为合格的开发者，肯定要对这些配置有点好奇心，修改定制成自己的Web应用才能用得舒服。最近在学习SpringBoot时搜索网上的一些教程看到修改Banner的教程，也尝试了一把，记录这个好玩的东西。</p>
+<blockquote>
+<h2 id="修改Spring-Banner"><a href="#修改Spring-Banner" class="headerlink" title="修改Spring Banner"></a>修改Spring Banner</h2></blockquote>
+<p>​        首先来玩一个好玩的东西，就是修改Spring Boot默认的Banner，默认启动应用会输出Spring Banner如果我们自己做些小Demo，加上个性化Banner，可能会我们的程序更加逼格一点呢，早在Spring Boot 1.x 版本中就已经有了更换启动Banner的方法，并且使用起来非常简单。</p>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-banner.png" alt></p>
+<blockquote>
+<h3 id="triangular-flag-on-post-个性化修改Banner案例一：ASCII文字版本Bannner"><a href="#triangular-flag-on-post-个性化修改Banner案例一：ASCII文字版本Bannner" class="headerlink" title=":triangular_flag_on_post:个性化修改Banner案例一：ASCII文字版本Bannner"></a>:triangular_flag_on_post:个性化修改Banner案例一：ASCII文字版本Bannner</h3></blockquote>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-SteveJobs.png" alt></p>
+<blockquote>
+<h3 id="triangular-flag-on-post-个性化修改Banner案例二：Image转ASCII文字版本Bannner"><a href="#triangular-flag-on-post-个性化修改Banner案例二：Image转ASCII文字版本Bannner" class="headerlink" title=":triangular_flag_on_post:个性化修改Banner案例二：Image转ASCII文字版本Bannner"></a>:triangular_flag_on_post:个性化修改Banner案例二：Image转ASCII文字版本Bannner</h3></blockquote>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-luojay.png" alt></p>
+<blockquote>
+<h3 id="triangular-flag-on-post-个性化修改Banner案例三：脑洞新奇的佛祖Bannner"><a href="#triangular-flag-on-post-个性化修改Banner案例三：脑洞新奇的佛祖Bannner" class="headerlink" title=":triangular_flag_on_post:个性化修改Banner案例三：脑洞新奇的佛祖Bannner"></a>:triangular_flag_on_post:个性化修改Banner案例三：脑洞新奇的佛祖Bannner</h3></blockquote>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-fozu.png" alt></p>
+<blockquote>
+<h4 id="bookmark-tabs-个性化修改Banner修改步骤"><a href="#bookmark-tabs-个性化修改Banner修改步骤" class="headerlink" title=":bookmark_tabs: 个性化修改Banner修改步骤"></a>:bookmark_tabs: 个性化修改Banner修改步骤</h4></blockquote>
+<ol>
+<li><p>在src/main/resources路径下新建一个banner.txt文件</p>
+</li>
+<li><p>在下面三个自定义的Banner的网站转换好Banner相关的ASCII字符</p>
+</li>
+<li><p>在banner.txt中填入转换好Banner相关的ASCII字符即可</p>
+</li>
+</ol>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-Path.png" alt="SpringBoot-Banner-Path"></p>
+<blockquote>
+<h4 id="link-自定义Banner网站链接"><a href="#link-自定义Banner网站链接" class="headerlink" title=":link: 自定义Banner网站链接"></a>:link: 自定义Banner网站链接</h4></blockquote>
+<p><a href="http://patorjk.com/software/taag" rel="external nofollow noopener noreferrer" target="_blank">文本转ASCII神奇网站</a></p>
+<p><a href="http://www.network-science.de/ascii/" rel="external nofollow noopener noreferrer" target="_blank">ascii生成器</a></p>
+<p><a href="http://www.degraeve.com/img2txt.php" rel="external nofollow noopener noreferrer" target="_blank">图片转TXT</a></p>
+<blockquote>
+<h4 id="link-有关Banner的修改比较好的博文推荐-引用"><a href="#link-有关Banner的修改比较好的博文推荐-引用" class="headerlink" title=":link:有关Banner的修改比较好的博文推荐(引用)"></a>:link:有关Banner的修改比较好的博文推荐(引用)</h4></blockquote>
+<p><a href="http://blog.didispace.com/spring-boot-banner/" rel="external nofollow noopener noreferrer" target="_blank">【程序猿DD 】新年彩蛋：Spring Boot自定义Banner</a></p>
+<p><a href="https://blog.csdn.net/A924110137/article/details/91797859" rel="external nofollow noopener noreferrer" target="_blank">Srpingboot启动彩蛋banner修改（让springboot多点乐趣）</a></p>
+<blockquote>
+<h3 id="Spring使用YAML修改Tomcat端口"><a href="#Spring使用YAML修改Tomcat端口" class="headerlink" title="Spring使用YAML修改Tomcat端口"></a>Spring使用YAML修改Tomcat端口</h3></blockquote>
+<p>​        SpringBoot使用一个全局的配置文件，配置文件名是application(固定),但application.properties和application.yml两种格式，学过JavaSE的基本都会porperties文件配置，这里来讲讲<strong>YAML</strong>文件</p>
+<blockquote>
+<h3 id="YAML与XML类比"><a href="#YAML与XML类比" class="headerlink" title="YAML与XML类比"></a>YAML与XML类比</h3></blockquote>
+<p>​        <strong>YAML</strong>是一种和xml类似但比xml简洁的标记语言文件，<strong>yml</strong>是<strong>YAML</strong>文件的后缀名。</p>
+<p>下面分别以xml和yml写一段同样功能的标记语言来表示Tomcat服务器端口</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//xml文件记录服务端口为8080</span><br><span class="line"><span class="tag">&lt;<span class="name">server</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">port</span>&gt;</span>8080<span class="tag">&lt;/<span class="name">port</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">server</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">//yaml文件记录服务端口为8080</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">	<span class="attr">port:8080</span></span><br></pre></td></tr></table></figure>
+
+<p>​        通过上面的代码比较，就可以看出，yml用两个标签和两个冒号就能完整表示一个服务端口，而xml文件则需要四个标签才能达到同样的功能，所以在简洁程度完爆xml文件，后来被SpringBoot推荐用作来记录配置信息的文件</p>
+<blockquote>
+<h3 id="YAML与Properties类比"><a href="#YAML与Properties类比" class="headerlink" title="YAML与Properties类比"></a>YAML与Properties类比</h3></blockquote>
+<p>​        分别先上一段properties和yml表示数据库连接的配置信息，对比你会发现yaml比porperties更加简洁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">###properties config mysql info</span><br><span class="line">jdbc.driver=com.mysql.jdbc.Driver</span><br><span class="line">jdbc.url=jdbc:mysql://localhost:3306/user?characterEncoding=utf8</span><br><span class="line">jdbc.username=luojay</span><br><span class="line">jdbc.password=luojay</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###yaml config mysql info</span></span><br><span class="line"><span class="attr">jdbc:</span></span><br><span class="line">	<span class="attr">driver:com.mysql.jdbc.Driver</span></span><br><span class="line">	<span class="attr">url:mysql://localhost:3306/user?characterEncoding=utf8</span></span><br><span class="line">	<span class="attr">username:luojay</span></span><br><span class="line">	<span class="attr">password:luojay</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<h3 id="YAML语法"><a href="#YAML语法" class="headerlink" title="YAML语法"></a>YAML语法</h3></blockquote>
+<p>​        之所以跟porperties类比，是因为yaml和porperties语法有类似，都是用键值对(key-value)来表示一个配置信息项</p>
+<p>不同的点在于：</p>
+<p>1.键值对匹配的符号不同</p>
+<p>porperties用<strong>等于号</strong>匹配键和值         例如<code>username=luojay</code></p>
+<p>yaml用<strong>冒号</strong>匹配键和值                     例如<code>username:luojay</code></p>
+<p>2.yaml严格匹配缩进来表示层级关系</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">###username和password在jdbc层级下是同一层级关系</span></span><br><span class="line"><span class="attr">jdbc:</span></span><br><span class="line">	<span class="attr">username:luojay</span></span><br><span class="line">	<span class="attr">password:luojay</span></span><br><span class="line"><span class="comment">###username和password在jdbc层级下不是同一层级关系</span></span><br><span class="line"><span class="attr">jdbc:</span></span><br><span class="line">	<span class="attr">username:luojay</span></span><br><span class="line">		<span class="attr">password:luojay</span></span><br></pre></td></tr></table></figure>
+
+<p>3.yaml严格区分大小写，大小写不同的属性和值是不同的。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">USERNAME:</span><span class="string">LUOJAY</span> </span><br><span class="line"><span class="attr">username:</span><span class="string">luojay</span></span><br><span class="line"><span class="comment">###区分大小写luojay是不同的属性值</span></span><br></pre></td></tr></table></figure>
+
+<p>​        这里以application.yml为例修改端口值，SpringBoot默认的Tomcat是内嵌在Jar包中且端口是8080 修改配置文件的作用：SpringBoot在底层都给我们自动配置好，通过修改端口可以解决开发中常见的端口被占用的冲突问题，可以同时部署多个应用在多个Tomcat上</p>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-Port.png" alt></p>
+<p>启动项目查看控台日志，查看端口是否已经改好</p>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Banner/SpringBoot-Banner-log.png" alt></p>
+<blockquote>
+<h3 id="文章配套的源码已传到Github-sparkles"><a href="#文章配套的源码已传到Github-sparkles" class="headerlink" title="文章配套的源码已传到Github:sparkles:"></a>文章配套的源码已传到Github:sparkles:</h3></blockquote>
+<p><a href="https://github.com/bobi8344/SpringBoot-Study/tree/master/springboot-banner" rel="external nofollow noopener noreferrer" target="_blank">SpringBoot-Banner</a></p>
+<p>欢迎clone 如果有帮助，请给个start！</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    luojay
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://www.luojay.top/Spring Boot入门案例修改默认配置(二).html" title="Spring Boot入门案例修改默认配置(二)">http://www.luojay.top/Spring Boot入门案例修改默认配置(二).html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+		  <!-- 优化底部的标签# 替换成图标 -->
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/SpringBoot 快速入门案例.html" rel="next" title="SpringBoot 快速入门案例">
+                <i class="fa fa-chevron-left"></i> SpringBoot 快速入门案例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/SpringBoot整合Thymeleaf(三).html" rel="prev" title="SpringBoot整合Thymeleaf(三)">
+                SpringBoot整合Thymeleaf(三) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="luojay">
+            
+              <p class="site-author-name" itemprop="name">luojay</p>
+              <p class="site-description motion-element" itemprop="description">一个进阶Java后端工程师</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bobi8344" target="_blank" title="GitHub" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:741162225@qq.com" target="_blank" title="E-Mail" rel="external nofollow noopener noreferrer">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank" rel="external nofollow noopener noreferrer">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Spring-Banner"><span class="nav-number">1.</span> <span class="nav-text">修改Spring Banner</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#triangular-flag-on-post-个性化修改Banner案例一：ASCII文字版本Bannner"><span class="nav-number">1.1.</span> <span class="nav-text">:triangular_flag_on_post:个性化修改Banner案例一：ASCII文字版本Bannner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#triangular-flag-on-post-个性化修改Banner案例二：Image转ASCII文字版本Bannner"><span class="nav-number">1.2.</span> <span class="nav-text">:triangular_flag_on_post:个性化修改Banner案例二：Image转ASCII文字版本Bannner</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#triangular-flag-on-post-个性化修改Banner案例三：脑洞新奇的佛祖Bannner"><span class="nav-number">1.3.</span> <span class="nav-text">:triangular_flag_on_post:个性化修改Banner案例三：脑洞新奇的佛祖Bannner</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bookmark-tabs-个性化修改Banner修改步骤"><span class="nav-number">1.3.1.</span> <span class="nav-text">:bookmark_tabs: 个性化修改Banner修改步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#link-自定义Banner网站链接"><span class="nav-number">1.3.2.</span> <span class="nav-text">:link: 自定义Banner网站链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#link-有关Banner的修改比较好的博文推荐-引用"><span class="nav-number">1.3.3.</span> <span class="nav-text">:link:有关Banner的修改比较好的博文推荐(引用)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring使用YAML修改Tomcat端口"><span class="nav-number">1.4.</span> <span class="nav-text">Spring使用YAML修改Tomcat端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML与XML类比"><span class="nav-number">1.5.</span> <span class="nav-text">YAML与XML类比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML与Properties类比"><span class="nav-number">1.6.</span> <span class="nav-text">YAML与Properties类比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#YAML语法"><span class="nav-number">1.7.</span> <span class="nav-text">YAML语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章配套的源码已传到Github-sparkles"><span class="nav-number">1.8.</span> <span class="nav-text">文章配套的源码已传到Github:sparkles:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">luojay</span>
+
+  
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">21k</span>
+  
+
+  
+    
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读次数">19 mins.</span>
+  
+</div>
+
+
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<span id="busuanzi_container_site_uv">
+  本站访问次数：<span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+</span>
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      本站访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'kGjx2FzeOx3Va6YWfnnA1P4g-gzGzoHsz',
+        appKey: 'eNgGXCYb2cvccCHFbvieSaS5',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
