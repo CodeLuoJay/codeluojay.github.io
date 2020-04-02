@@ -124,7 +124,7 @@
 
 
 
-  <title>SpringBoot整合Thymeleaf(三) | luojay</title>
+  <title>归档 | luojay</title>
   
 
 
@@ -143,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -269,288 +269,107 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 6 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2020">2020</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.luojay.top/SpringBoot整合Thymeleaf(三).html">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="luojay">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="luojay">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/SpringBoot2.X整合Thymeleaf.html" itemprop="url">
+              
+                <span itemprop="name">SpringBoot整合Thymeleaf(三)</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot整合Thymeleaf(三)</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T21:31:21+08:00">2019-12-28</time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/SpringBoot2-X系列/" itemprop="url" rel="index">
-                    <span itemprop="name">SpringBoot2.X系列</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/SpringBoot整合Thymeleaf(三).html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/SpringBoot整合Thymeleaf(三).html" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv">阅读次数
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
-            </span>
-          
-
-          
-            <div class="post-wordcount">
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">8.1k</span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">7 mins.</span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p>​        Thymeleaf是SpringBoot官方推荐的用来渲染页面的一个模板，如果你对模板和模板引擎没什么概念的话，可以简单理解为Thymeleaf是一个高级简洁的JSP。如果学过MVC设计模式，那么Thymeleaf就是视图层（view）的主要核心内容。</p>
-<blockquote>
-<h3 id="为什么要整合Thymeleaf"><a href="#为什么要整合Thymeleaf" class="headerlink" title="为什么要整合Thymeleaf"></a>为什么要整合Thymeleaf</h3></blockquote>
-<ol>
-<li>SpringBoot在内置Tomcat服务器，并且以Jar包方式运行，传统JSP页面不在适合这种模式开发</li>
-<li>使用Thymeleaf有助于前后端协作，因为它在无网络环境下也可以运行，前端开发者便于在静态页面查看页面效果，后台开发者也便于在服务器查看实时的数据交互。</li>
-<li>实现严格的mvc设计模式，不用像JSP页面大量嵌套Java代码，开发更简洁</li>
-</ol>
-<blockquote>
-<h3 id="整合Thymeleaf过程及步骤"><a href="#整合Thymeleaf过程及步骤" class="headerlink" title="整合Thymeleaf过程及步骤"></a>整合Thymeleaf过程及步骤</h3></blockquote>
-<p>首先，明确整合Thymeleaf需要用到模块依赖Jar包</p>
-<p>其次，要初步了解SpringBoot解析渲染Thymeleaf的过程</p>
-<p>1.整合Thymeleaf需要用到模块依赖Jar包：Web模块和Thymeleaf模块相应的依赖Jar包</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--thymeleaf模块依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Web模块依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>上面的依赖在SpringBoot Initializer中勾选Web模块勾选Web，Themeleaf模块勾选Thymeleaf</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-Module.png" alt></p>
-<p>2.构建整合Thymeleaf的目录结构</p>
-<table>
-<thead>
-<tr>
-<th>文件夹</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>controller</td>
-<td>在Application所在的包下建controller会被SpringBoot自动扫描配置Bean</td>
-</tr>
-<tr>
-<td>static</td>
-<td>static是SpringBoot默认加载像CSS,JS,IMG等静态资源的文件夹</td>
-</tr>
-<tr>
-<td>templates</td>
-<td>templates默认是放置模板文件，用来展示渲染的页面</td>
-</tr>
-</tbody></table>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/20191226221317.png" alt="SpringBoot整合Thymeleaf的目录结构"></p>
-<p>3.controller的代码内容</p>
-<p>@Controller告知SpringBoot这是控制层，自动注入Bean</p>
-<p>@RequestMapping是映射访问路径注解，在localhost:8080之后的路径就是根据此处写的</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.luojay.springbootthymeleaf.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThymeleafController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/getThymeleaf"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">Welcome</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"luojay"</span>;</span><br><span class="line">        <span class="comment">//此处返回值，对应templates的文件名，SpringBoot根据它找到对应Html</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>4.luojay.html代码内容</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>luojay's Thymeleaf<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    hello,luojay!</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<h3 id="页面展示效果"><a href="#页面展示效果" class="headerlink" title="页面展示效果"></a>页面展示效果</h3></blockquote>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-runResult.png" alt="Thymeleaf简单列子效果"></p>
-<blockquote>
-<h3 id="进阶的学习案例"><a href="#进阶的学习案例" class="headerlink" title="进阶的学习案例"></a>进阶的学习案例</h3></blockquote>
-<p>上面的入门例子可以说是简单到不行，有了这个基础，可以利用网上一些静态资源整合Thymeleaf搭建好看的页面,比如登录界面</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-login.gif" alt></p>
-<blockquote>
-<p>文章配套代码</p>
-</blockquote>
-<p><strong>Github</strong>:<strong><a href="https://github.com/bobi8344/SpringBoot-Study/tree/master/springboot-thymeleaf" rel="external nofollow noopener noreferrer" target="_blank">springboot-thymeleaf </a></strong></p>
-<p>登录页面源代码：<a href="https://www.17sucai.com/pins/34125.html" rel="external nofollow noopener noreferrer" target="_blank"><strong>基于Layui简约登录界面</strong></a></p>
-<p>如果代码对你有用，欢迎给个Starts支持一下！</p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    luojay
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://www.luojay.top/SpringBoot整合Thymeleaf(三).html" title="SpringBoot整合Thymeleaf(三)">http://www.luojay.top/SpringBoot整合Thymeleaf(三).html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow noopener noreferrer" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-04-03T21:31:45+08:00" content="2020-04-03">
+          04-03
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-		  <!-- 优化底部的标签# 替换成图标 -->
-            <a href="/tags/Thymeleaf/" rel="tag"><i class="fa fa-tag"></i> Thymeleaf</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/Spring Boot入门案例修改默认配置(二).html" rel="next" title="Spring Boot入门案例修改默认配置(二)">
-                <i class="fa fa-chevron-left"></i> Spring Boot入门案例修改默认配置(二)
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
+        
+        
+        
+
+        
+        
+
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/SpringBoot2.X快速入门案例.html" itemprop="url">
+              
+                <span itemprop="name">SpringBoot2.X快速入门案例</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-03-27T21:30:21+08:00" content="2020-03-27">
+          03-27
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+
+      
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -558,13 +377,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -585,17 +397,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -679,22 +482,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要整合Thymeleaf"><span class="nav-number">1.</span> <span class="nav-text">为什么要整合Thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合Thymeleaf过程及步骤"><span class="nav-number">2.</span> <span class="nav-text">整合Thymeleaf过程及步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面展示效果"><span class="nav-number">3.</span> <span class="nav-text">页面展示效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶的学习案例"><span class="nav-number">4.</span> <span class="nav-text">进阶的学习案例</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -858,10 +645,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
-
-
 
   
 

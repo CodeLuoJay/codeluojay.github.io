@@ -124,7 +124,7 @@
 
 
 
-  <title>SpringBoot 快速入门案例 | luojay</title>
+  <title>SpringBoot整合Thymeleaf(三) | luojay</title>
   
 
 
@@ -283,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.luojay.top/SpringBoot 快速入门案例.html">
+    <link itemprop="mainEntityOfPage" href="http://www.luojay.top/SpringBoot2.X整合Thymeleaf.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="luojay">
@@ -300,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SpringBoot 快速入门案例</h1>
+          <h1 class="post-title" itemprop="name headline">SpringBoot整合Thymeleaf(三)</h1>
         
 
         <div class="post-meta">
@@ -312,7 +312,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-28T21:15:21+08:00">2019-12-28</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-03T21:31:45+08:00">2020-04-03</time>
             
 
             
@@ -351,8 +351,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/SpringBoot 快速入门案例.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/SpringBoot 快速入门案例.html" itemprop="commentCount"></span>
+                <a href="/SpringBoot2.X整合Thymeleaf.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/SpringBoot2.X整合Thymeleaf.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -379,7 +379,7 @@
                 
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
-                <span title="字数统计">5.5k</span>
+                <span title="字数统计">8.9k</span>
               
 
               
@@ -393,7 +393,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">5 mins.</span>
+                <span title="阅读时长">8 mins.</span>
               
             </div>
           
@@ -413,79 +413,31 @@
       
 
       
-        <p>SpringBoot是一个配置很少就能轻松搭建Web应用框架，相信学过SSH或者SSM框架的开发者都知道在该框架环境下需要配置一堆XML配置文件才能实现搭建Web应用，学习完SpringBoot后，搭建Web应用会让你有丝滑般的畅快。</p>
-<h2 id="SpringBoot2-2-2版本快速入门环境要求"><a href="#SpringBoot2-2-2版本快速入门环境要求" class="headerlink" title="SpringBoot2.2.2版本快速入门环境要求"></a>SpringBoot2.2.2版本快速入门环境要求</h2><p>目前<a href="https://spring.io/projects/spring-boot/" rel="external nofollow noopener noreferrer" target="_blank">Spring官网</a>官网正式发行的版本是2.2.2版本，在其<a href="https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/html/getting-started.html#getting-started" rel="external nofollow noopener noreferrer" target="_blank">官方文档</a>列出以下环境要求，本文也是基于2.2.2版本快速搭建入门的案例，所谓工欲善其事必先利其器，生产环境得搞起来。</p>
-<table>
-<thead>
-<tr>
-<th>工具</th>
-<th>版本</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Maven</td>
-<td>3.3+</td>
-</tr>
-<tr>
-<td>Java</td>
-<td>8    (即JDK1.8及以后版本)</td>
-</tr>
-<tr>
-<td>Tomcat</td>
-<td>9.0</td>
-</tr>
-</tbody></table>
-<h2 id="通过IDEA的Spring-initializer快速搭建SpringBoot"><a href="#通过IDEA的Spring-initializer快速搭建SpringBoot" class="headerlink" title="通过IDEA的Spring initializer快速搭建SpringBoot"></a>通过IDEA的Spring initializer快速搭建SpringBoot</h2><p>SpringBoot快速搭建的工具有STS(Eclipse编程环境下常用)，Spring initializer（IDEA常用）,而官方文档推荐使用Maven构建工具基于Pom.xml文件引入依赖构建，以上的工具和搭建方式这里就见仁见智。</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-1.png" alt></p>
-<p>点击Next–&gt;输入包名和项目名–&gt;Next</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-2.png" alt></p>
-<p>勾选Web模块–&gt;Next</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-3.png" alt></p>
-<h2 id="Spring-initializer创建的SpringBoot文件目录结构"><a href="#Spring-initializer创建的SpringBoot文件目录结构" class="headerlink" title="Spring initializer创建的SpringBoot文件目录结构"></a>Spring initializer创建的SpringBoot文件目录结构</h2><p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-4.png" alt></p>
-<p>这里只需要关注pom.xml和src文件夹下目录结构，只需要知道带有mvn的都是与Maven相关的，用于记录Maven版本信息和方便分布式部署，这里入门案例是单体部署，不需要用到，有强迫症可以删除带有mvn的文件和目录</p>
-<table>
-<thead>
-<tr>
-<th>对应的作用</th>
-<th>文件夹</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>存放maven-wrapper.properties和其jar包（可以忽略）</td>
-<td>.mvn</td>
-</tr>
-<tr>
-<td>标准的Maven目录结构(其目录下有main和test文件夹)</td>
-<td>src</td>
-</tr>
-<tr>
-<td>main文件夹存放Java源文件，test存放用于测试文件</td>
-<td>src下的main</td>
-</tr>
-<tr>
-<td>SpringBoot自动配置默认扫描的目录文件夹</td>
-<td>src下的main的java下的com.xxx</td>
-</tr>
-<tr>
-<td>是SpringBoot程序主入口</td>
-<td>src下的main的java下的com.xxx的xxxApplication.java</td>
-</tr>
-<tr>
-<td>用于存放静态资源文件如js,css.images</td>
-<td>src下的main的resources下的static</td>
-</tr>
-<tr>
-<td>用于存放模板引擎的文件如themeleaf，freemarker</td>
-<td>src的main的resources下的templates</td>
-</tr>
-</tbody></table>
-<p>这里补充说明，Controller是需要手动创建在<strong>xxxApplication</strong>所在的文件夹下，每个人起的包名和项目名不同所以会有所区别，<strong>因为该xxxApplication是程序主入口</strong>，其所在文件夹是SpringBoot自动配置默认扫描的目录文件夹相当于之前的SSM框架中component-scan的作用，自动配置Controller。</p>
-<h2 id="编写控制层代码XXXController"><a href="#编写控制层代码XXXController" class="headerlink" title="编写控制层代码XXXController"></a>编写控制层代码XXXController</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.luojay.springbootstart.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span><span class="comment">//标注是控制层的注解</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@ResponseBody</span><span class="comment">//以JSON格式输出到页面的注解</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)<span class="comment">//映射路径</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">SayHello</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello SpringBoot!"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>​    Thymeleaf是适用于Web和独立环境的现代服务器端Java模板引擎，SpringBoot官方推荐使用的一个模板引擎</p>
+<p>如果你对模板和模板引擎没什么概念的话，可以简单理解为Thymeleaf是一个高级简洁的JSP</p>
+<p>如果学过MVC设计模式，那么Thymeleaf就是视图层（view）的主要核心内容</p>
+<h3 id="模板引擎是什么"><a href="#模板引擎是什么" class="headerlink" title="模板引擎是什么"></a>模板引擎是什么</h3><p>模板引擎是为了使用户界面与业务数据（内容）分离而产生的，它可以将特定格式的模板和数据通过模板引擎渲染就会生成一个标准的HTML文档页面</p>
+<p>它最早出现是C#语言用来渲染成.asp，所以它不是什么新鲜事了，Thymeleaf则是Java的一个模板引擎，与Thymeleaf类似的模板引擎还有Velocity和FreeMarker</p>
+<h3 id="模板引擎工作原理"><a href="#模板引擎工作原理" class="headerlink" title="模板引擎工作原理"></a>模板引擎工作原理</h3><p><img src="https://imgkr.cn-bj.ufileos.com/2af67ab9-f9f2-4dfc-8eac-4cc98ee3566e.jpg" alt><br>按照我自己理解模板引擎只是将模板(Template)和数据(Java Object)渲染成网页(Html)的工具</p>
+<p>JSP知道吧，它里面参杂Java内置对象代码来进行数据显示，而Thymeleaf按照我的理解就像去除了Java代码的简化版JSP</p>
+<h3 id="为什么要整合Thymeleaf"><a href="#为什么要整合Thymeleaf" class="headerlink" title="为什么要整合Thymeleaf"></a>为什么要整合Thymeleaf</h3><p>在SpringBoot2.X系列第一篇文章中整合的案例，各位应该有印象我没有去配置过Tomcat</p>
+<p>因为SpringBoot将项目打包成<strong>Jar包方式在内部集成的Tomcat运行</strong>，传统JSP是要打成<strong>war包</strong>才能运行，所以这里不适用JSP必须整合Thymeleaf</p>
+<p>使用Thymeleaf有助于前后端协同开发，因为它在无网络环境下也可以运行，前端程序员便于在静态页面查看页面效果，后端开发者也便于在服务器查看实时的数据交互</p>
+<p>Thymeleaf严格遵循的mvc设计模式，不用像JSP页面大量嵌套Java代码，开发更简洁</p>
+<h3 id="SpringBoot整合Thymeleaf"><a href="#SpringBoot整合Thymeleaf" class="headerlink" title="SpringBoot整合Thymeleaf"></a>SpringBoot整合Thymeleaf</h3><p>整合Thymeleaf需要Web模块和Thymeleaf模块相应的依赖Jar包</p>
+<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--thymeleaf模块依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--Web模块依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="启动XXXApplication访问映射路径"><a href="#启动XXXApplication访问映射路径" class="headerlink" title="启动XXXApplication访问映射路径"></a>启动XXXApplication访问映射路径</h2><p>点击绿色三角形启动web程序</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-5.png" alt></p>
-<p>在浏览器输入http:localhost:8080/hello 显示字符串即为完成入门案例</p>
-<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-6.png" alt></p>
+<p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-Module.png" alt><br>在SpringBoot Initializer中分别勾选Web和Thymeleaf</p>
+<h3 id="整合Thymeleaf的项目结构"><a href="#整合Thymeleaf的项目结构" class="headerlink" title="整合Thymeleaf的项目结构"></a>整合Thymeleaf的项目结构</h3><p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/20191226221317.png" alt="SpringBoot整合Thymeleaf的目录结构"><br>在SpringbootApplication所在的包下所有Bean类会被SpringBoot自动扫描组装，static目录是SpringBootyong用来加载CSS,JS,IMG等静态资源，templates是用来放置html模板文件</p>
+<h3 id="ThymeleafController"><a href="#ThymeleafController" class="headerlink" title="ThymeleafController"></a>ThymeleafController</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.luojay.springbootthymeleaf.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThymeleafController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/getThymeleaf"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">Welcome</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"luojay"</span>;</span><br><span class="line">        <span class="comment">//此处返回值，对应templates的文件名，SpringBoot根据它找到对应Html</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>@Controller注解是告知SpringBoot此类是控制层需要自动注入，@RequestMapping是映射访问路径注解，在localhost:8080之后的路径就是根据此处写的</p>
+<h3 id="luojay-html"><a href="#luojay-html" class="headerlink" title="luojay.html"></a>luojay.html</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>luojay's Thymeleaf<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    hello,luojay!</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="页面展示效果"><a href="#页面展示效果" class="headerlink" title="页面展示效果"></a>页面展示效果</h3><p><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-runResult.png" alt></p>
+<h3 id="进阶的学习案例"><a href="#进阶的学习案例" class="headerlink" title="进阶的学习案例"></a>进阶的学习案例</h3><p>上面的入门例子可以说是简单到不行，有了这个基础，可以利用网上一些静态资源整合Thymeleaf搭建好看的页面,比如登录界面<br><img src="https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Themeleaf/SpringBoot-Thymeleaf-login.gif" alt></p>
+<h3 id="文章配套代码"><a href="#文章配套代码" class="headerlink" title="文章配套代码"></a>文章配套代码</h3><p>文章的配套源码已收录在我的GitHub仓库SpringBoot-Study中，点击阅读原文可以直达我的Github中的SpringBoot-Study仓库，如果案例的代码对你有帮助，欢迎star和fork！<br>Github:<a href="https://github.com/bobi8344/SpringBoot-Study/tree/master/springboot-thymeleaf" title="springboot-thymeleaf" rel="external nofollow noopener noreferrer" target="_blank">springboot-thymeleaf</a></p>
+<p>登录页面源代码：<a href="https://www.17sucai.com/pins/34125.html" title="**基于Layui简约登录界面**" rel="external nofollow noopener noreferrer" target="_blank"><strong>基于Layui简约登录界面</strong></a></p>
 
       
     </div>
@@ -506,7 +458,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.luojay.top/SpringBoot 快速入门案例.html" title="SpringBoot 快速入门案例">http://www.luojay.top/SpringBoot 快速入门案例.html</a>
+    <a href="http://www.luojay.top/SpringBoot2.X整合Thymeleaf.html" title="SpringBoot整合Thymeleaf(三)">http://www.luojay.top/SpringBoot2.X整合Thymeleaf.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -522,7 +474,7 @@
         <div class="post-tags">
           
 		  <!-- 优化底部的标签# 替换成图标 -->
-            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
+            <a href="/tags/Thymeleaf/" rel="tag"><i class="fa fa-tag"></i> Thymeleaf</a>
           
         </div>
       
@@ -535,8 +487,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/HashMap两种遍历方式.html" rel="next" title="HashMap两种遍历方式">
-                <i class="fa fa-chevron-left"></i> HashMap两种遍历方式
+              <a href="/SpringBoot2.X快速入门案例.html" rel="next" title="SpringBoot2.X快速入门案例">
+                <i class="fa fa-chevron-left"></i> SpringBoot2.X快速入门案例
               </a>
             
           </div>
@@ -544,10 +496,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Spring Boot入门案例修改默认配置(二).html" rel="prev" title="Spring Boot入门案例修改默认配置(二)">
-                Spring Boot入门案例修改默认配置(二) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -706,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot2-2-2版本快速入门环境要求"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot2.2.2版本快速入门环境要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过IDEA的Spring-initializer快速搭建SpringBoot"><span class="nav-number">2.</span> <span class="nav-text">通过IDEA的Spring initializer快速搭建SpringBoot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring-initializer创建的SpringBoot文件目录结构"><span class="nav-number">3.</span> <span class="nav-text">Spring initializer创建的SpringBoot文件目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写控制层代码XXXController"><span class="nav-number">4.</span> <span class="nav-text">编写控制层代码XXXController</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动XXXApplication访问映射路径"><span class="nav-number">5.</span> <span class="nav-text">启动XXXApplication访问映射路径</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎是什么"><span class="nav-number">1.</span> <span class="nav-text">模板引擎是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模板引擎工作原理"><span class="nav-number">2.</span> <span class="nav-text">模板引擎工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么要整合Thymeleaf"><span class="nav-number">3.</span> <span class="nav-text">为什么要整合Thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SpringBoot整合Thymeleaf"><span class="nav-number">4.</span> <span class="nav-text">SpringBoot整合Thymeleaf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pom-xml"><span class="nav-number">5.</span> <span class="nav-text">pom.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#整合Thymeleaf的项目结构"><span class="nav-number">6.</span> <span class="nav-text">整合Thymeleaf的项目结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThymeleafController"><span class="nav-number">7.</span> <span class="nav-text">ThymeleafController</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#luojay-html"><span class="nav-number">8.</span> <span class="nav-text">luojay.html</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面展示效果"><span class="nav-number">9.</span> <span class="nav-text">页面展示效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进阶的学习案例"><span class="nav-number">10.</span> <span class="nav-text">进阶的学习案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文章配套代码"><span class="nav-number">11.</span> <span class="nav-text">文章配套代码</span></a></li></ol></div>
             
 
           </div>
