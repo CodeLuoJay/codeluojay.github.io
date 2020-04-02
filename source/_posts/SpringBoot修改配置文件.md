@@ -1,5 +1,5 @@
 ---
-title: Spring Boot入门案例修改默认配置(二)
+title: Spring Boot入门案例修改默认配置
 date: 2019-12-28 21:23:21
 tags: SpringBoot
 categories:  SpringBoot2.X系列
