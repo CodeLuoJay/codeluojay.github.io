@@ -1,10 +1,12 @@
 ---
-title: SpringBoot 快速入门案例
-date: 2019-12-28 21:15:21
+title: SpringBoot2.X快速入门案例
+date: 2020-03-27 21:30:21
 tags: SpringBoot
 categories:  SpringBoot2.X系列
 images: "https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-index.jpg"
 ---
+
+![](https://bobi-1258060032.cos.ap-chengdu.myqcloud.com/SpringBoot-Start/SpringBoot-start-index.jpg)
 
 SpringBoot是一个配置很少就能轻松搭建Web应用框架，相信学过SSH或者SSM框架的开发者都知道在该框架环境下需要配置一堆XML配置文件才能实现搭建Web应用，学习完SpringBoot后，搭建Web应用会让你有丝滑般的畅快。
 
